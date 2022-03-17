@@ -88,4 +88,8 @@ class DrawingView(context: Context, attributes: AttributeSet): View(context, att
         mBrushSize = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, newSize, resources.displayMetrics)
         mDrawPaint!!.strokeWidth = mBrushSize
     }
+
+    fun clearDrawingBoard(){
+        mPaths.clear()
+    }
 }
