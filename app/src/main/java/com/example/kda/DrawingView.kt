@@ -35,6 +35,11 @@ class DrawingView(context: Context, attributes: AttributeSet): View(context, att
         mCanvasPaint = Paint(Paint.DITHER_FLAG)
     }
 
+    fun setColor(newColor: String){
+        color = Color.parseColor(newColor)
+        mDrawPaint!!.color = color
+    }
+
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
         super.onSizeChanged(w, h, oldw, oldh)
         mCanvasBitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888)

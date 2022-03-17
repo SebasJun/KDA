@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/AndroidStudioProjects.KDA.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/AndroidStudioProjects.KDA.app.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/KDA.iml" filepath="$PROJECT_DIR$/.idea/modules/KDA.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/KDA.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/KDA.app.iml" />
     </modules>
