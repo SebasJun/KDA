@@ -4,6 +4,9 @@ import android.Manifest
 import android.app.AlertDialog
 import android.app.Dialog
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.Canvas
+import android.graphics.Color
 import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -64,13 +67,18 @@ class MainActivity : AppCompatActivity() {
         val ibGallery: ImageButton = findViewById(R.id.ib_image_selector)
         val ib_brush: ImageButton = findViewById(R.id.ib_brush)
         val ib_clear : ImageButton = findViewById(R.id.ib_clear)
+        val ib_redo : ImageButton = findViewById(R.id.ib_redo)
 
         ib_brush.setOnClickListener{
             showBrushSizeChooserDialog()
         }
 
         ib_clear.setOnClickListener{
-            drawingView?.clearDrawingBoard()
+            drawingView?.undo()
+        }
+
+        ib_redo.setOnClickListener{
+            drawingView?.redo()
         }
 
         ibGallery.setOnClickListener{
@@ -137,5 +145,20 @@ class MainActivity : AppCompatActivity() {
         }
 
         builder.create().show()
+    }
+
+    private fun getBitmapFromView(view: View): Bitmap{
+        val returnedBitmap = Bitmap.createBitmap(view.width, view.height, Bitmap.Config.ARGB_8888)
+        val canvas = Canvas(returnedBitmap)
+        val bgDrawable = view.background
+        if(bgDrawable != null){
+            bgDrawable.draw(canvas)
+        }else{
+            canvas.drawColor(Color.WHITE)
+
+        }
+
+        view.draw(canvas)
+        return returnedBitmap
     }
 }

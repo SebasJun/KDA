@@ -17,6 +17,7 @@ class DrawingView(context: Context, attributes: AttributeSet): View(context, att
     private var color = Color.BLACK
     private var canvas: Canvas? = null
     private val mPaths = ArrayList<CustomPath>()
+    private val undoMPaths = ArrayList<CustomPath>()
 
     init {
         setUpDrawing()
@@ -94,7 +95,17 @@ class DrawingView(context: Context, attributes: AttributeSet): View(context, att
         mDrawPaint!!.strokeWidth = mBrushSize
     }
 
-    fun clearDrawingBoard(){
-        mPaths.clear()
+    fun undo(){
+        if(mPaths.size > 0){
+            undoMPaths.add(mPaths.removeAt(mPaths.size - 1))
+            invalidate()
+        }
+    }
+
+    fun redo(){
+        if(undoMPaths.size > 0){
+            mPaths.add(undoMPaths.removeAt(undoMPaths.size - 1))
+            invalidate()
+        }
     }
 }

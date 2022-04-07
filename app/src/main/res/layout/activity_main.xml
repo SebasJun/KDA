@@ -42,7 +42,18 @@
         app:layout_constraintTop_toBottomOf="@id/ll_paint_colors"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/ib_brush"
+        app:layout_constraintEnd_toStartOf="@+id/ib_brush"
+        />
+    <ImageButton
+        android:id="@+id/ib_save"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/save_icon"
+        android:scaleType="fitXY"
+        app:layout_constraintTop_toBottomOf="@id/ll_paint_colors"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="ib_image_selector"
+        app:layout_constraintEnd_toStartOf="@+id/ib_brush"
         />
     <ImageButton
         android:id="@+id/ib_brush"
@@ -153,10 +164,20 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:scaleType="centerInside"
-        android:src="@drawable/clear_icon"
+        android:src="@drawable/redo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ll_paint_colors"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/ib_brush" />
+    <ImageButton
+        android:id="@+id/ib_redo"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/screenclip"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ll_paint_colors"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ib_clear" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
